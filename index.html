@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CERDAS! — Kuis Pengetahuan Umum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="board-texture"></div>
+
+<main class="stage">
+
+  <!-- ===== LAYAR MULAI ===== -->
+  <section id="screen-start" class="screen screen--active">
+    <div class="chalk-frame">
+      <p class="eyebrow">— PAPAN SKOR CERDAS CERMAT —</p>
+      <h1 class="title">CERDAS<span class="title-bang">!</span></h1>
+      <p class="tagline">Uji wawasanmu. Jawab cepat, kumpulkan rentetan benar, jaga tiga nyawamu.</p>
+
+      <div class="rules">
+        <div class="rule">
+          <span class="rule-num">01</span>
+          <p>Setiap soal punya batas waktu <strong>15 detik</strong>. Makin cepat menjawab, makin besar bonus poin.</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">02</span>
+          <p>Jawaban salah atau waktu habis mengurangi <strong>1 dari 3 nyawa</strong> dan memutus rentetan benarmu.</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">03</span>
+          <p>Rentetan jawaban benar berturut-turut memberi <strong>pengali skor</strong> yang makin besar.</p>
+        </div>
+      </div>
+
+      <button id="btn-start" class="btn-buzzer">
+        <span class="btn-buzzer-label">MULAI</span>
+        <span class="btn-buzzer-sub">tekan bel</span>
+      </button>
+
+      <p class="best-score">Skor terbaikmu: <span id="best-score-value">0</span></p>
+    </div>
+  </section>
+
+  <!-- ===== LAYAR PERMAINAN ===== -->
+  <section id="screen-game" class="screen">
+    <header class="hud">
+      <div class="hud-block">
+        <span class="hud-label">Soal</span>
+        <span class="hud-value"><span id="q-index">1</span>/<span id="q-total">15</span></span>
+      </div>
+
+      <div class="hud-block hud-block--score">
+        <span class="hud-label">Skor</span>
+        <span class="hud-value hud-value--flip" id="score-value">0000</span>
+      </div>
+
+      <div class="hud-block">
+        <span class="hud-label">Nyawa</span>
+        <span class="hud-value" id="lives-value">♥ ♥ ♥</span>
+      </div>
+    </header>
+
+    <div class="streak-bar" id="streak-bar" aria-live="polite"></div>
+
+    <div class="timer-track">
+      <div class="timer-fill" id="timer-fill"></div>
+    </div>
+
+    <article class="question-card">
+      <p class="category-badge" id="category-badge">Kategori</p>
+      <h2 class="question-text" id="question-text">Memuat soal…</h2>
+
+      <div class="answers" id="answers-grid">
+        <!-- tombol jawaban dibuat lewat JS -->
+      </div>
+
+      <p class="feedback" id="feedback-text" aria-live="polite"></p>
+    </article>
+  </section>
+
+  <!-- ===== LAYAR AKHIR ===== -->
+  <section id="screen-end" class="screen">
+    <div class="chalk-frame">
+      <p class="eyebrow" id="end-eyebrow">— PERMAINAN SELESAI —</p>
+      <h1 class="title title--small" id="end-title">SEKIAN!</h1>
+
+      <div class="end-stats">
+        <div class="end-stat">
+          <span class="end-stat-value" id="end-score">0</span>
+          <span class="end-stat-label">Skor Akhir</span>
+        </div>
+        <div class="end-stat">
+          <span class="end-stat-value" id="end-correct">0</span>
+          <span class="end-stat-label">Jawaban Benar</span>
+        </div>
+        <div class="end-stat">
+          <span class="end-stat-value" id="end-streak">0</span>
+          <span class="end-stat-label">Rentetan Terbaik</span>
+        </div>
+      </div>
+
+      <p class="end-verdict" id="end-verdict">—</p>
+
+      <button id="btn-restart" class="btn-buzzer">
+        <span class="btn-buzzer-label">MAIN LAGI</span>
+        <span class="btn-buzzer-sub">tekan bel</span>
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
